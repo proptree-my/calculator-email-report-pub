@@ -11,10 +11,10 @@ const controller = async (body) => {
   }
 };
 
-const sendMessage = () => {
+const sendMessage = (body) => {
 return new Promise((resolve, reject) => {
   const params = {
-    MessageBody: JSON.stringify({ param1, param2 }),
+    MessageBody: JSON.stringify(body),
     QueueUrl: process.env.SQS_URL,
     /*{ MessageAttributes: {
       SomeAttr: {
