@@ -1,0 +1,127 @@
+<mjml>
+  <mj-body background-color="#ccd3e0">
+    <!-- <mj-section background-color="#f5f5fd" padding-bottom="20px" padding-top="20px">
+      <mj-column width="100%" background-color="#FFF">
+        <mj-image src="www.googlele.com" alt="AIRUMA logo" align="center" border="none" width="200px" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="0"></mj-image>
+      </mj-column>
+    </mj-section> -->
+    <mj-section background-color="rgba(240,86,61, 0.5)" padding-bottom="0px" padding-top="0">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="15px" color="#FFFFFF" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="00px">
+          <!-- <span>HELLO</span> -->
+          
+          <img src="https://airuma-public-contents.s3-ap-southeast-1.amazonaws.com/email-main-pict.png" style="width: 100%;"> 
+          <!-- <mj-image src="www.googlele.com" alt="AIRUMA logo" align="center" border="none" width="200px" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="0"></mj-image> -->
+        </mj-text>
+      </mj-column>
+    </mj-section>
+     <mj-section background-color="rgba(240,86,61, 0.5)" padding-bottom="0px" padding-top="0">
+      <mj-column width="100%">
+        <mj-text align="center" font-size="15px" color="#FFFFFF" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="20px">
+          <!-- <span>HELLO</span> -->
+          
+          <p style="font-size:18px; font-weight: bold;  color:white; text-shadow: 3px 3px 5px rgba(240,86,61, 0.6);">Your AIRUMA Property Financial Report Is Ready!</p>
+          <!-- <mj-image src="www.googlele.com" alt="AIRUMA logo" align="center" border="none" width="200px" padding-left="0px" padding-right="0px" padding-bottom="0px" padding-top="0"></mj-image> -->
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#ffffff" padding-bottom="5px" padding-top="0">
+      <mj-column width="100%">
+        <!-- <mj-divider border-color="#ffffff" border-width="2px" border-style="solid" padding-left="20px" padding-right="20px" padding-bottom="0px" padding-top="0"></mj-divider> -->
+        <mj-text align="center" color="#000" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="28px" padding-top="28px">
+          <!-- <span style="font-size:20px; font-weight:bold">Your report is ready to download!</span> -->
+          <br />
+          <span style="font-size:13px; line-height: 17px">
+            Thank you for being among the first to try out the AIRUMA Property Calculator. In appreciation of your support, you are receiving a complimentary AIRUMA Property Financial Report to allow you to understand your monthly instalments, expenses and cash flow before deciding to buy the property. Your report will also help to speed up your discussion with the realtor and bank mortgage consultant regarding your property purchase!
+
+          </span>
+          <br />
+          <br />
+          <br />
+          <span style="font-size:13px; line-height: 17px">
+            To help us make AIRUMA Property Calculator the best it can be, take a few minutes to fill up our survey and share with us your using experience. Your feedback helps us to decide what improvements to be made and what to do next!
+          </span>
+        </mj-text>
+      </mj-column>
+      <mj-column width="100%">
+        <mj-text align="center" color="#000" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="28px" padding-top="28px">
+          <a href="#" style="color: rgba(240,86,61); font-size: 15px ;font-weight: bold">
+            <button style="background-color: rgba(240,86,61, 0.8); border: rgba(240,86,61); height:30px; width: 180px; color: white">
+              START SURVEY
+            </button>
+          </a>
+        </mj-text>
+      </mj-column>
+      <mj-column width="100%">
+        <mj-text align="center" color="#000" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="28px" padding-top="28px">
+          If you enjoy using the AIRUMA Property calculator and our financial report, don't forget to share it with your friends and family to save up their time in the process of purchasing a property.
+           <br />
+           <br />
+          <input value="https://dev.airuma.com.my/calculator" />
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <!-- <mj-section background-color="#568feb" padding-bottom="15px">
+      <mj-column>
+        <mj-text align="center" color="#FFF" font-size="15px" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px"><strong>Order ID</strong></mj-text>
+        <mj-text align="center" color="#FFF" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="20px" padding-top="10px">{{id}}</mj-text>
+      </mj-column>
+      <mj-column>
+        <mj-text align="center" color="#FFF" font-size="15px" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px"><strong>Package</strong></mj-text>
+        <mj-text align="center" color="#FFF" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="20px" padding-top="10px">{{packageName}}</mj-text>
+      </mj-column>
+      <mj-column>
+        <mj-text align="center" color="#FFF" font-size="15px" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px"><strong>Start date</strong></mj-text>
+        <mj-text align="center" color="#FFF" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="20px" padding-top="10px">{{startDate}}</mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#568feb" padding-bottom="15px">
+      <mj-column>
+        <mj-text align="center" color="#FFF" font-size="15px" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px"><strong>Slot</strong></mj-text>
+        <mj-text align="center" color="#FFF" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="20px" padding-top="10px">{{time}}</mj-text>
+      </mj-column>
+      <mj-column>
+        <mj-text align="center" color="#FFF" font-size="15px" font-family="Ubuntu, Helvetica, Arial, sans-serif" padding-left="25px" padding-right="25px" padding-bottom="0px"><strong>Branch</strong></mj-text>
+        <mj-text align="center" color="#FFF" font-size="13px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="20px" padding-top="10px">{{branch}}</mj-text>
+      </mj-column>
+    </mj-section>
+    !-->
+    <!-- <mj-section background-color="#356CC7" padding-bottom="20px" padding-top="20px">
+      <mj-column width="50%">
+        <mj-button background-color="#ffae00" color="#FFF" font-size="14px" align="center" font-weight="bold" border="none" padding="15px 30px" border-radius="10px" href="https://mjml.io" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="10px">Download Receipt</mj-button>
+      </mj-column>
+      <mj-column width="50%">
+        <mj-button background-color="#ffae00" color="#FFF" font-size="14px" align="center" font-weight="bold" border="none" padding="15px 30px" border-radius="10px" href="https://mjml.io" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="12px">Track My Order</mj-button>
+      </mj-column>
+    </mj-section> -->
+    <!--<mj-section background-color="#FFFFFF" padding-bottom="5px" padding-top="0">
+      <mj-column width="100%">
+        <mj-divider border-color="#ffffff" border-width="2px" border-style="solid" padding-left="20px" padding-right="20px" padding-bottom="0px" padding-top="0"></mj-divider>
+        <mj-text>
+          <table width="100%" align="center" border>
+            <tr align="center">
+              <th>Class</th>
+              <th>Date</th>
+              <th>Day</th>
+              <th>Type</th>
+            </tr>
+            {{#schedules}}{{/schedules}}
+          </table>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+!-->
+    <mj-section background-color="#BFBFBF" padding-bottom="5px" padding-top="0">
+      <mj-column width="100%">
+        <!-- <mj-divider border-color="#ffffff" border-width="2px" border-style="solid" padding-left="20px" padding-right="20px" padding-bottom="0px" padding-top="0"></mj-divider> -->
+        <mj-text align="center" color="#000" font-size="15px" font-family="Helvetica" padding-left="25px" padding-right="25px" padding-bottom="20px" padding-top="20px">
+
+          <span style="font-size:8px; line-height: 8px">
+            Disclaimer: The information and materials contained in this report are for general information purposes only and does not constitute any professional advice whatsoever. If you require any professional advice, kindly contact your professional consultants / specialists that may assist you. While substantial efforts had been expended to ensure that the information are as accurate as possible, this report does not guarantee the accuracy of the information and accepts no liability for any inaccuracies or omissions. The above also does not constitute an offer for credit nor does it guarantee that the credit facility applied for will be approved. All applications for credit facility are subject to credit evaluation and approval by the institutions offering such credit facilities and this website shall not be liable for any actions or omissions by such institutions offering credit facilities.
+          </span>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

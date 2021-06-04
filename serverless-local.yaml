@@ -1,0 +1,66 @@
+service: PropTreePostReportEmail
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  role: ${env:AWS_LAMBDA_EXECUTION_ROLE}
+    
+  httpApi:
+    id: ${cf:httpApi-${opt:stage, self:provider.stage, 'dev'}.HTTPAPIID}
+
+# you can overwrite defaults here
+  stage: dev
+  region: ap-southeast-1
+
+# you can add statements to the Lambda function's IAM Role here
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+functions:
+  PropTreeGetListing:
+    memorySize: 256
+    timeout: 20
+    # naming convention <system>-<action>-<item/function>-<by what if applicable>-<environment>
+    name: PropTree-POST-Report-Email-${opt:stage, self:provider.stage, 'dev'}
+    handler: index.handler
+    environment:
+      ENV: ${opt:stage, self:provider.stage, 'dev'} 
+      IS_LOCAL: 'true'
+      NODE_TLS_REJECT_UNAUTHORIZED: '0'
+      IS_MAC: 'true'
+    tags:
+      domain: PropTree
+    layers:
+      - ${cf:PropTreeLambdaLayers-${opt:stage, self:provider.stage, 'dev'}.NodeJSEssentialLambdaLayerQualifiedArn}
+      - ${cf:PropTreeLambdaLayers-${opt:stage, self:provider.stage, 'dev'}.StripeLambdaLayerQualifiedArn}  
+    vpc:
+      securityGroupIds:
+        - ${env:AWS_SECURITY_GROUP}
+      subnetIds:
+        - ${env:AWS_VPC_SUBNET_1}
+        - ${env:AWS_VPC_SUBNET_2}
+    events:
+     - httpApi:
+         path: /v1/services/sendReport
+         method: 'post'
+    #      authorizer:
+    #       id: ${cf:PropTreeHTTPAPI-${opt:stage, self:provider.stage, 'dev'}.HTTPAPIAuthorizerID}
+          # scopes: ??

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student's profile</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <style type="text/css">
+      html {
+        zoom: 0.75;
+      }
+      /* @media screen {
+				body {
+					
+					margin: 5mm 5mm 5mm 10mm;
+					
+					}
+				} */
+      /* @font-face {
+          font-family: 'Helvetica Neue';
+          font-style: normal;
+          font-weight: normal;
+          src: url("../../fonts/HelveticaNeue.ttf");
+      }
+      @font-face {
+          font-family: 'Helvetica Neue';
+          font-style: normal;
+          font-weight: bold;
+          src: url("../../fonts/HelveticaNeue.ttf");
+      } */
+
+      @media print {
+        body {
+          background: black;
+          -webkit-print-color-adjust: exact !important;
+          font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+          font-size: 11px;
+        }
+
+        .page-header {
+          -webkit-print-color-adjust: exact !important;
+        }
+
+        .page {
+          margin: 0;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .page {
+        /* height: 297mm; */
+        height: 271mm; /*reserve 20mm for header and footer*/
+        position: relative;
+        /* border: solid 1px; */
+        page-break-after: auto;
+        page-break-before: auto;
+      }
+      body {
+        /* width: 1200px; */
+        /* width: 210mm; */
+        margin: 0;
+        padding: 0;
+        /* font-size: 16px;
+        line-height: 24px; */
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        /* color: rgb(33, 33, 33); */
+        background: rgb(255, 255, 255);
+        /* background: rgb(240, 89, 69); */
+      }
+      .page-header {
+        background: rgba(154, 57, 44, 0.8);
+        /* color: rgba(255, 255, 255, 0.8); */
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0px 25px 0px 25px;
+        /* font-size: 10px; */
+        height: 13mm;
+        /* padding-left: 200px; */
+        /* box-sizing: border-box; */
+        /* display: block; */
+        /* position: relative; */
+      }
+      .pageHeader-airuma {
+        font-weight: bold;
+        font-size: 18px;
+        height: 100%;
+        line-height: 50px;
+      }
+      .pageHeader-detail {
+        font-weight: bolder;
+        font-size: 10px;
+        line-height: 15px;
+        padding-top: 10px;
+      }
+      .first-page {
+        /* width: 100%; */
+      }
+      .first-page-title {
+        padding-top: 15mm;
+        /* height: 100%; */
+        /* width: 100%; */
+        line-height: 70px;
+        /* border: solid 1px; */
+        text-align: center;
+        font-weight: bolder;
+        font-size: 3.8em;
+        /* word-wrap: break-word; */
+        /* position: relative; */
+      }
+      .first-page-sub-title {
+        /* height: 100%; */
+        margin-top: 20mm;
+        /* position: relative; */
+        /* width: 100%; */
+        line-height: 1.2em;
+        /* border: solid 1px; */
+        text-align: center;
+        font-weight: bolder;
+        font-size: 1.2em;
+        /* word-wrap: break-word; */
+      }
+      .first-page-bottom {
+        position: absolute;
+        bottom: 30mm;
+        font-size: 1.1em;
+        text-align: center;
+        width: 100%;
+      }
+      .page-content {
+        padding: 40px 0px 10px 0px;
+      }
+      .user-input-summary {
+        text-align: center;
+      }
+      .report-section {
+        margin-top: 30px;
+      }
+      .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+      }
+
+      .separator::before,
+      .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #000;
+      }
+
+      .separator:not(:empty)::before {
+        margin-right: 0.25em;
+      }
+
+      .separator:not(:empty)::after {
+        margin-left: 0.25em;
+      }
+      .calculator-financial-title {
+        font-weight: bolder;
+        font-size: 14px;
+      }
+      .calculator-financial-content {
+        font-weight: bolder;
+        font-size: 24px;
+      }
+      .airuma-index-score-title {
+        font-weight: bolder;
+        font-size: 20px;
+      }
+      .airuma-index-score-content {
+        font-weight: bold;
+        font-size: 26px;
+      }
+      .report-section-title {
+        text-align: center;
+        margin-bottom: 28px;
+        text-decoration: underline;
+      }
+    </style>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <div class="page first-page container">
+      <div id="pageHeader-first"></div>
+      <div class="first-page-title">
+        AIRUMA
+        <br />
+        PROPERTY
+        <br />
+        FINANCIAL
+        <br />
+        REPORT
+      </div>
+      <div class="first-page-sub-title">
+        Report No: {{report_number}}
+        <br />
+        Date: {{report_date}}
+      </div>
+      <div class="first-page-bottom">
+        AIRUMA Personal Financial Report is prepared based on information that you had provided to AIRUMA.
+      </div>
+    </div>
+
+    <!-- =============== Next page =============== -->
+
+    <div class="page container">
+      <div id="pageHeader" class="page-header">
+        <div class="float-start pageHeader-airuma">
+          <div class="">AIRUMA</div>
+        </div>
+        <div class="float-end pageHeader-detail">
+          Date: {{report_date}}
+          <br />
+          Report No: {{report_number}}
+        </div>
+      </div>
+      <div class="page-content">
+        <div class="user-input-summary">
+          <p>Property SPA price: {{propertyPrice}}</p>
+          <p>Loan amount: {{loanAmount}}</p>
+          <p>Tenure: {{tenure}}</p>
+          <p>Total income: {{totalIncome}}</p>
+          <p>Total current commitment: {{totalDebtOutstanding}}</p>
+        </div>
+        <div class="report-section-title">
+          <h3>Eligible Banks</h3>
+        </div>
+        <div class="report-section">
+          <table class="table" style="text-align: center">
+            <thead>
+              <tr>
+                <th>Banks</th>
+                <th>Tenure</th>
+                <th>Best rate</th>
+                <th>Installment</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each banks}}
+              <tr>
+                <td>{{this.bankName}}</td>
+                <td>{{../tenure}}</td>
+                <td>{{this.bestRate}}</td>
+                <td>{{this.monthlyPayment}}</td>
+                <!--property value here-->
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <br />
+        <div class="report-section">
+          <div class="report-section-title">
+            <h3>Estimated montly expense</h3>
+          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td></td>
+                {{#each bankNames}}
+                <td>{{this}}</td>
+                {{/each}}
+              </tr>
+              {{#each expenses}}
+              <tr>
+                <th>{{this.title}}</th>
+                {{#each this.values}}
+                <td>{{this}}</td>
+                {{/each}}
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="page container">
+      <div class="page-content">
+        <div class="report-section-title">
+          <h3>Estimated upfront cost</h3>
+        </div>
+        <div class="report-section">
+          <div>Estimated upfront cost will be based on your selected bank <b>{{selectedBank.bankName}}</b></div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Downpayment</td>
+                <td>{{selectedBank.downPayment}}</td>
+              </tr>
+              <tr>
+                <td>Utility deposit</td>
+                <td>{{selectedBank.totalDeposits}}</td>
+              </tr>
+              <tr>
+                <td>Estimated loan insurance (MRTA)</td>
+                <td>{{selectedBank.estimatedInsuranceFeeUpfront}}</td>
+              </tr>
+              <tr>
+                <td>Furniture & fixture</td>
+                <td>{{selectedBank.furnitureAndFixture}}</td>
+              </tr>
+              <tr>
+                <td>MOT (Memorandum of Transfer) - Stamp Duty</td>
+                <td>{{selectedBank.motFee}}</td>
+              </tr>
+              <tr>
+                <td>SPA legal fee</td>
+                <td>{{selectedBank.spaLegalFee}}</td>
+              </tr>
+              <tr>
+                <td>Loan agreement legal fee</td>
+                <td>{{selectedBank.loanAgreementLegalFee}}</td>
+              </tr>
+              <tr>
+                <td>Loan agreemnt stamp duty</td>
+                <td>{{selectedBank.stampDutyForLoanAgreementFee}}</td>
+              </tr>
+              <tr>
+                <td>Consent fee</td>
+                <td>{{selectedBank.consentFee}}</td>
+              </tr>
+              <tr>
+                <td>Total</td>
+                <td>{{selectedBank.additionalFee}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="page container">
+      <div class="page-content">
+        <div class="report-section">
+          <div class="report-section-title">
+            <h3>Your DSR</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-3 offset-3">
+              <div class="card">
+                <div class="card-body">
+                  <p class="calculator-financial-title">Nett income ({{currency}})</p>
+                  <span class="calculator-financial-content"> {{banks.[1].totalIncome}} &nbsp; % </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="card">
+                <div class="card-body">
+                  <p class="calculator-financial-title">DSR before loan</p>
+                  <span class="calculator-financial-content"> {{banks.[1].dsrBeforeLoan}} &nbsp; % </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 30px">
+            <div class="col-8 offset-2">
+              <h4>DSR after loan</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    {{#each banks}}
+                    <th>{{this.bankName}}</th>
+                    {{/each}}
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    {{#each banks}}
+                    <th>{{this.dsrAfterLoan}}</th>
+                    {{/each}}
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                Note: If your Debt Service Ration or DSR (before loan) is lesser than 70%, your loan will likely be
+                approved by the Banks.
+              </div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="report-section">
+          <div class="report-section-title">
+            <h3>AIRUMA Stress Index</h3>
+          </div>
+
+          <div class="row">
+            <div class="col-md-8 offset-md-2" style="text-align: center">
+              <!-- <div class="airuma-index-score-title">
+                AIRUMA Stress Index
+              </div> -->
+              <!-- <div class="airuma-index-score-content">{{banks.[1].airumaIndex.airumaStressLevel}}</div> -->
+              <div>
+                <img src="{{{chart}}}" alt="Chart here" style="height: 400px" />
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <div class="row">
+            <div class="col-9 offset-1">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <td colspan="2">
+                      AIRUMA stress index is an indicator to check the financial fitness of an individual, after
+                      successfully apply the property loan.
+                    </td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="width: 20%">0 - 40</td>
+                    <td>Life is easy after owning the property with additional cash for other property investment.</td>
+                  </tr>
+                  <tr>
+                    <td>41 - 80</td>
+                    <td>
+                      Life is easy after owning the property, with additional cash for saving and light investment.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>81 - 100</td>
+                    <td>
+                      Might feel stressful after owning the property. Recommend to work harder, or choose less expensive
+                      option.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page container">
+      <div class="page-content">
+        <br />
+        <br />
+        <div style="display: flexbox;">
+          <div class="separator">Note</div>
+        </div>
+      </div>
+    </div>
+    <div class="report-section">
+      <h3>Custom field for manual input</h3>
+    </div>
+    <div class="report-footer">ARUMA - All Rights reserved.</div>
+  </body>
+</html>
