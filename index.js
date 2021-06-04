@@ -22,7 +22,7 @@ exports.handler = async (event, context, callback) => {
     // await initialize();
 
     // Parse body to JSON
-    const bodyJSON = parseJSON(event)
+    const bodyJSON = parseJSON(body)
 
     // Logic validation
     // validator.validateQueryParam(queryParams)
