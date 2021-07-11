@@ -40,7 +40,7 @@ functions:
     handler: index.handler
     environment:
       ENV: ${opt:stage, self:provider.stage, 'dev'}
-      SQS_URL: https://sqs.ap-southeast-1.amazonaws.com/405552916381/airuma-report-email-queue
+      SQS_URL: https://sqs.ap-southeast-1.amazonaws.com/405552916381/airuma-report-email-queue-${opt:stage, self:provider.stage, 'dev'}
     tags:
       domain: PropTree
     layers:
